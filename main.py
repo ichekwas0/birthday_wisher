@@ -7,13 +7,16 @@ import datetime as dt
 my_email = "pythoncode1234@gmail.com"
 password = "ILOVEYOUALOT"
 
+#Read csv
 data = pandas.read_csv("birthdays.csv")
 
+#Get current month and day
 now = dt.datetime.now()
 month = now.strftime("%m")
 day = now.strftime("%d")
 birthday_tuple = (int(month), int(day))
 
+#Create a dictionary and check if their birthday is contained in the dictionary
 birthday_dict = {(row.month, row.day): row for (index, row) in data.iterrows()}
 if birthday_tuple in birthday_dict:
     birthday_person = birthday_dict[birthday_tuple]
